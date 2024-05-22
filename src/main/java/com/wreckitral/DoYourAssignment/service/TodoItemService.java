@@ -1,5 +1,6 @@
 package com.wreckitral.DoYourAssignment.service;
 
+import java.time.Instant;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,18 @@ public class TodoItemService {
 
     public Optional<TodoItem> getById(Long id) {
         return todoItemRepository.findById(id);
+    }
+
+    public TodoItem save(TodoItem todoItem) {
+        if (todoItem.getId() == null) {
+            todoItem.setCreatedAt(Instant.now());
+        }
+        todoItem.setUpdateAt(Instant.now());
+        return todoItemRepository.save(todoItem);
+    }
+
+    public void delete(TodoItem todoItem) {
+        todoItemRepository.delete(todoItem);
     }
 }
 
