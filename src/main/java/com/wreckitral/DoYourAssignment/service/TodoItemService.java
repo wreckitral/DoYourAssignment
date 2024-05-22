@@ -1,5 +1,7 @@
 package com.wreckitral.DoYourAssignment.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,10 @@ public class TodoItemService {
 
     public Iterable<TodoItem> getAll() {
         return todoItemRepository.findAll();
+    }
+
+    public Optional<TodoItem> getById(Long id) {
+        return todoItemRepository.findById(id);
     }
 }
 
