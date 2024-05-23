@@ -42,8 +42,8 @@
                         <span th:if="${item.isComplete} == true" th:text="Yes" />
                         <span th:unless="${item.isComplete} == true" th:text="No" />
                     </td>
-                    <td th:text="${item.createdAt}"></td>
-                    <td th:text="${item.updatedAt}"></td>
+                    <td th:text="${#dates.format(item.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <td th:text="${#dates.format(item.updatedAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
                 </tr>
             </tbody>
         </table>
