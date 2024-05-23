@@ -20,21 +20,21 @@ This app will help you manage your long list unfinished assignment.
     <td>Index</td>
   </tr>
   <tr>
-    <td><img src=""></td>
+    <td><img src="https://github.com/wreckitral/DoYourAssignment/blob/main/index.png"></td>
   </tr>
-  <br />
+  <br>
   <tr>
     <td>Add</td>
   </tr>
   <tr>
-    <td><img src=""></td>
+    <td><img src="https://github.com/wreckitral/DoYourAssignment/blob/main/add.png"></td>
   </tr>
-  <br />
+  <br>
   <tr>
     <td>Update</td>
   </tr>
   <tr>
-    <td><img src=""></td>
+    <td><img src="https://github.com/wreckitral/DoYourAssignment/blob/main/update.png"></td>
   </tr>
  </table>
 
