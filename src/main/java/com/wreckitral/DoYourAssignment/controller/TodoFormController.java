@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.wreckitral.DoYourAssignment.model.TodoItem;
 import com.wreckitral.DoYourAssignment.service.TodoItemService;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
 import jakarta.validation.Valid;
 
 @Controller
@@ -44,4 +44,15 @@ public class TodoFormController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        TodoItem item = todoItemService.getById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Assigment id: " + id + " not found"));
+
+        model.addAttribute("todo", item);
+
+        return "edit-todo-item";
+    }
+
 }
