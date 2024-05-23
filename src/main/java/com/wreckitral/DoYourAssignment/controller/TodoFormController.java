@@ -3,9 +3,7 @@ package com.wreckitral.DoYourAssignment.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.wreckitral.DoYourAssignment.model.TodoItem;
 import com.wreckitral.DoYourAssignment.service.TodoItemService;
@@ -53,6 +51,19 @@ public class TodoFormController {
         model.addAttribute("todo", item);
 
         return "edit-todo-item";
+    }
+
+    @PostMapping("/todo/{id}")
+    public String updateTodoItem(@PathVariable("id") Long id, @Valid TodoItem todoItem, BindingResult result, Model model) {
+        TodoItem item = todoItemService.getById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Assigment id: " + id + " not found"));
+
+        item.setIsComplete(todoItem.getIsComplete());
+        item.setDescription(todoItem.getDescription());
+
+        todoItemService.save(item);
+
+        return "redirect:/";
     }
 
 }
