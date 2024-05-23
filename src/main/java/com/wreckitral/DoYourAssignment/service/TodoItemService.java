@@ -26,7 +26,7 @@ public class TodoItemService {
         if (todoItem.getId() == null) {
             todoItem.setCreatedAt(Instant.now());
         }
-        todoItem.setUpdateAt(Instant.now());
+        todoItem.setUpdatedAt(Instant.now());
         return todoItemRepository.save(todoItem);
     }
 
